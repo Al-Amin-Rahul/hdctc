@@ -11,7 +11,7 @@
                         <h2 class="font-weight-bold">Human Development Computer Training Center</h2>
                         <span>Muktinagar, Shaghata, Gaibandha</span><br>
                         <span>Email- <u>hdctc.bd@gmail.com</u>, Website- <u>https://hdctc.com.bd</u></span>
-                        <h2>Student Registration Form</h2>
+                        <h2>Registration Form</h2>
                     </div>
                 </div>
             </div>
@@ -22,6 +22,82 @@
                     <div class="col-lg-12">
                         <div class="wrap bg-white p-5">
                             <div class="row">
+                                <div class="col-lg-3"></div>
+                                <div class="col-lg-6">
+                                    <div id="accordion">
+                                        <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <a href="#" class="btn btn-link w-100 alert-danger" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                ভাতা
+                                                </a>
+                                            </h5>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="wrap ml-3">
+                                                <input type="radio" value="1" name="vata" id="">বয়স্ক ভাতা <br>
+                                                <input type="radio" value="2" name="vata" id="">বিধবা ভাতা<br>
+                                                <input type="radio" value="3" name="vata" id="">মাতৃ কালীন ভাতা<br>
+                                                <input type="radio" value="4" name="vata" id="">প্রতিবন্ধী ভাতা<br>
+                                                <input type="radio" value="5" name="vata" id="">কিশোর কিশোরী ভাতা
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <a href="#" class="btn btn-link collapsed w-100 alert-danger" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                মেডিকেল সুবিধা
+                                                </a>
+                                            </h5>
+                                            </div>
+                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                            <div class="wrap ml-3">
+                                                <input type="radio" value="1" name="medical" id="">চক্ষু ক্যাম্প <br>
+                                                <input type="radio" value="2" name="medical" id="">স্বাস্থ্য ক্যাম্প<br>
+                                                <input type="radio" value="3" name="medical" id="">রক্তের গ্রুপ পরীক্ষা <br>
+                                                <input type="radio" value="4" name="medical" id="">মাদক নিরাময় <br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                                <a href="#" class="btn btn-link collapsed w-100 alert-danger" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                পারিবারিক খামার
+                                                </a>
+                                            </h5>
+                                            </div>
+                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                            <div class="wrap ml-3">
+                                                <input type="radio" value="1" name="paribarik" id="">হাঁস পালন<br>
+                                                <input type="radio" value="2" name="paribarik" id="">মুরগী পালন <br>
+                                                <input type="radio" value="3" name="paribarik" id="">ছাগল পালন<br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header" id="headingFour">
+                                            <h5 class="mb-0">
+                                                <a href="#" class="btn btn-link collapsed w-100 alert-danger" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                প্রশিক্ষণ
+                                                </a>
+                                            </h5>
+                                            </div>
+                                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                                            <div class="wrap ml-3">
+                                                <input type="radio" value="1" name="prosikkhon" id="">কম্পিউটার প্রশিক্ষণ<br>
+                                                <input type="radio" value="2" name="prosikkhon" id="">সেলাই প্রশিক্ষণ<br>
+                                                <input type="radio" value="3" name="prosikkhon" id="">বিউটি পার্লার<br>
+                                                <input type="radio" value="3" name="prosikkhon" id="">হস্ত ও কুটির শিল্প
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
                                 <div class="col-lg-6">
                                     <div class="alert alert-info">Personal Information</div>
                                     <div class="form-group row">

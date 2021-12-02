@@ -11,7 +11,12 @@
                 @endforeach
             </ul>
         </li>
-        <li class="nav-link"><a href="" class="text-white"><i class="fas fa-link text-dark"></i> Service</a></li>
+        <li class="nav-link"><a href="#" class="text-white"><i class="fas fa-link text-dark"></i> Service <i class="fas fa-angle-down"></i></a>
+            <ul class="nav d-none sub-menu bg-dark">
+                <li class="nav-link"><a class="text-white" href="{{ route("vata") }}"><i class="fas fa-book text-light"></i>ভাতা</a></li>
+            </ul>
+        </li>
+        <li class="nav-link"><a href="{{ route("career") }}" class="text-white"><i class="fas fa-link text-dark"></i> Career</a></li>
         <li class="nav-link"><a href="{{ route("student-registration") }}" class="text-white"><i class="text-dark fas fa-address-card"></i> Registration</a></li>
         <li class="nav-link"><a href="{{ route("contact-us") }}" class="text-white"><i class="fas fa-mobile text-dark"></i> Contact</a></li>
         @if(Session::get('student_id'))

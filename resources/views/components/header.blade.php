@@ -30,9 +30,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header-logo">
-                <marquee behavior="" direction="ltr">
-                    <a href="/"><span class="display-4 font-weight-bolder">HD<span class="text-danger">CTC</span></span></a>
-                </marquee>
+                    <a href="/"><img src="{{ asset('/front/images/logo.png') }}" class="img-fluid" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-9">
@@ -65,7 +63,12 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="nav-link border-right border-dark"><a href="" class="text-white"><i class="fas fa-link text-dark"></i> Service</a></li>
+                        <li class="nav-link border-right border-dark"><a href="#" class="text-white"><i class="fas fa-link text-dark"></i> Service <i class="fas fa-angle-down"></i></a>
+                            <ul class="nav d-none position-absolute sub-menu bg-dark">
+                                <li class="nav-link"><a class="text-white" href="{{ route("vata") }}"><i class="fas fa-book text-light"></i>ভাতা</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-link border-right border-dark"><a href="{{ route("career") }}" class="text-white"><i class="fas fa-link text-dark"></i> Career</a></li>
                         <li class="nav-link border-right border-dark"><a href="{{ route("student-registration") }}" class="text-white"><i class="text-dark fas fa-address-card"></i> Registration</a></li>
                         <li class="nav-link border-right border-dark"><a href="{{ route("contact-us") }}" class="text-white"><i class="fas fa-mobile text-dark"></i> Contact</a></li>
                     </ul>
@@ -127,9 +130,7 @@
         <div class="row">
             <div class="col-sm-6 col-6">
                 <div class="header-logo">
-                    <marquee behavior="" direction="ltr">
-                        <a href="/"><span class="display-4 font-weight-bolder">HD<span class="text-danger">CTC</span></span></a>
-                    </marquee>
+                    <a href="/"><img src="{{ asset('/front/images/logo.png') }}" class="img-fluid" alt=""></a>
                 </div>
             </div>
             <div class="col-sm-6 col-6">

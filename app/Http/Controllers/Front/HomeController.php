@@ -147,4 +147,16 @@ class HomeController extends Controller
     {
         return view('front.service.terms-of-use');
     }
+    public function vata()
+    {
+        return view('front.service.vata');
+    }
+    public function career()
+    {
+        return view('front.career.career');
+    }
+    public function jobDetails()
+    {
+        return view('front.career.job-details');
+    }
 }

@@ -25,6 +25,9 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('privacy-policy', "HomeController@privacyPolicy")->name('privacy-policy');
     Route::get('terms-of-use', "HomeController@termsOfUse")->name('terms-of-use');
     Route::post('submit-contact', "HomeController@submitContact")->name('submit-contact');
+    Route::get('vata', "HomeController@vata")->name('vata');
+    Route::get('career', "HomeController@career")->name('career');
+    Route::get('job-details', "HomeController@jobDetails")->name('job-details');
 
     Route::get('student-login', "LoginController@showLogin")->name('student-login');
     Route::get('student-logout', "LoginController@studentLogout")->name('student-logout')->middleware('student_login');
