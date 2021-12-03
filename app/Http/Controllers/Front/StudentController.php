@@ -17,63 +17,33 @@ use Illuminate\Support\Facades\Validator;
 class StudentController extends Controller
 {
     public function addAdmision(Request $request){
-        if($request->vata == 0 && $request->medical == 0)
+        $validator = Validator::make($request->all(), [
+            "service"       => "required",
+            "service_option"=> "required",
+            "student_name"  => "required",
+            "dob"           => "required",
+            "gender"        => "required",
+            "student_email" => "required|unique:admission_forms,student_email",
+            "student_phone" => "required",
+            "education"     => "required",
+            "father_name"   => "required",
+            "mother_name"   => "required",
+            "division"      => "required",
+            "district"      => "required",
+            "thana"         => "required",
+            "union"         => "required",
+            "post_code"     => "required",
+        ]);
+
+        if ($validator->fails())
         {
-            $validator = Validator::make($request->all(), [
-                "vata|medical|paribarik|prosikkhon"  => "required",
-                "student_name"  => "required",
-                "dob"           => "required",
-                "gender"        => "required",
-                "student_email" => "required|unique:admission_forms,student_email",
-                "student_phone" => "required",
-                "education"     => "required",
-                "father_name"   => "required",
-                "mother_name"   => "required",
-                "division"      => "required",
-                "district"      => "required",
-                "thana"         => "required",
-                "union"         => "required",
-                "post_code"     => "required",
-            ]);
-
-            if ($validator->fails())
-            {
-                return redirect()->back()->withErrors($validator)->withInput();
-            }
-            else
-            {
-                $form = new AdmissionForm();
-                $form->insertStudent($request);
-                return redirect()->route('student-copy')->with('success', 'Congratulations Your Application Submitted');
-            }
+            return redirect()->back()->withErrors($validator)->withInput();
         }
-        else{
-            $validator = Validator::make($request->all(), [
-                "student_name"  => "required",
-                "dob"           => "required",
-                "gender"        => "required",
-                "student_email" => "required|unique:admission_forms,student_email",
-                "student_phone" => "required",
-                "education"     => "required",
-                "father_name"   => "required",
-                "mother_name"   => "required",
-                "division"      => "required",
-                "district"      => "required",
-                "thana"         => "required",
-                "union"         => "required",
-                "post_code"     => "required",
-            ]);
-
-            if ($validator->fails())
-            {
-                return redirect()->back()->withErrors($validator)->withInput();
-            }
-            else
-            {
-                $form = new AdmissionForm();
-                $form->insertStudent($request);
-                return redirect()->route('student-copy')->with('success', 'Congratulations Your Application Submitted');
-            }
+        else
+        {
+            $form = new AdmissionForm();
+            $form->insertStudent($request);
+            return redirect()->route('student-copy')->with('success', 'Congratulations Your Application Submitted');
         }
     }
 
