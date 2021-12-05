@@ -29,7 +29,7 @@ class HomeController extends Controller
     
     public function index()
     {
-        $data['prospect']       =   Prospect::first();
+        $data['prospects']       =   Prospect::all();
         $data['testimonials']   =   Testimonial::all();
         $data['sliders']        =   Slider::where('publication_status',1)->get();
         $data['news']           =   NewsTicker::first();

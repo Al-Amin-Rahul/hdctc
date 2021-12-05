@@ -23,7 +23,7 @@ class StudentController extends Controller
             "student_name"  => "required",
             "dob"           => "required",
             "gender"        => "required",
-            "student_email" => "required|unique:admission_forms,student_email",
+            "student_email" => "unique:admission_forms,student_email",
             "student_phone" => "required",
             "education"     => "required",
             "father_name"   => "required",
@@ -33,6 +33,7 @@ class StudentController extends Controller
             "thana"         => "required",
             "union"         => "required",
             "post_code"     => "required",
+            "mobile_banking"=> "required",
         ]);
 
         if ($validator->fails())

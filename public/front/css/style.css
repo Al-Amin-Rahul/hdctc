@@ -1,43 +1,43 @@
-body{
-    background-color: #F6F6F6;
-    font-family: 'Open Sans', sans-serif;
+body {
+    background-color: #f6f6f6;
+    font-family: "Open Sans", sans-serif;
 }
 blink {
-  -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
-  animation: 1s linear infinite condemned_blink_effect;
+    -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+    animation: 1s linear infinite condemned_blink_effect;
 }
 
 /* for Safari 4.0 - 8.0 */
-@-webkit-keyframes condemned_blink_effect { 
-  0% {
-    visibility: hidden;
-  }
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
+@-webkit-keyframes condemned_blink_effect {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
 }
 
 @keyframes condemned_blink_effect {
-  0% {
-    visibility: hidden;
-  }
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
 }
-.about-slogan{
-  bottom: 20%;
-  right: 5%;
-  background: rgba(14, 15, 14, 0.6);
+.about-slogan {
+    bottom: 20%;
+    right: 5%;
+    background: rgba(14, 15, 14, 0.6);
 }
-.bangla{
-  font-family: 'Hind Siliguri', sans-serif;
+.bangla {
+    font-family: "Hind Siliguri", sans-serif;
 }
 /* sidenav  */
 .sidenav {
@@ -51,86 +51,92 @@ blink {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-  }
-  .ticker{
+}
+.ticker {
     background: rgba(14, 15, 14, 0.3);
-  }
-  .comment{
+}
+.comment {
     height: 120px !important;
-  }
-  .students-say img{
+}
+.students-say img {
     border-radius: 50%;
     border: 5px solid palegreen;
     width: 25% !important;
-    display: initial !important
-  }
-  .profile img{
+    display: initial !important;
+}
+.profile img {
     border-radius: 50%;
     border: 5px solid palegreen;
-    display: initial !important
-  }
-  .ticker-hd{
+    display: initial !important;
+}
+.ticker-hd {
     z-index: 1020;
-  }
-  .sidenav a {
+}
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
+}
+
+.sidenav a:hover {
     color: #f1f1f1;
-  }
-  
-  .sidenav .closebtn {
+}
+
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  /* end sidenavb */
-ul{
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+/* end sidenavb */
+ul {
     margin: 0;
     padding: 0;
 }
-a{
+a {
     text-decoration: none !important;
 }
-.cat-overlay-badge{
+.cat-overlay-badge {
     top: 0;
 }
-.post-lg-title{
+.post-lg-title {
     height: 175px;
 }
-.menu .nav li:hover{
-    background-color: #ff4546;
-}
-.nav .nav-link:hover .sub-menu{ 
+.download:hover .sub-menu {
     display: block !important;
 }
-.sub-menu li:hover{
+.menu .nav li:hover {
+    background-color: #ff4546;
+}
+.nav .nav-link:hover .sub-menu {
+    display: block !important;
+}
+.sub-menu li:hover {
     background-color: #ff4546;
     color: white;
 }
-.search{
+.search {
     background: none !important;
     border: none !important;
     border-bottom: 1px solid #fff !important;
     color: white !important;
 }
-@media only screen and (max-width:768px) {
-    
+@media only screen and (max-width: 768px) {
 }
-@media only screen and (min-width:425px) {
-  .about-slogan{
-    text-align: center !important;
-  }
+@media only screen and (min-width: 425px) {
+    .about-slogan {
+        text-align: center !important;
+    }
 }

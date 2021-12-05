@@ -53,9 +53,6 @@
                             </div>
                             <div class="col-lg-10 col-md-10 col-10">
                                 <div class="title font-weight-bold">APPLY ONLINE</div>
-                                <div class="description">
-                                    <span class="text-justify bangla">আপনার মোবাইল/কম্পিউটারের মাধ্যমে আয় করুন</span>
-                                </div>
                             </div>
                         </div>
                     </a>
@@ -63,25 +60,31 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="wrap shadow bg-primary p-5 rounded">
-                    @if($prospect)
-                    <a href="{{ asset($prospect->prospect) }}" class="text-decoration-none text-white" download>
-                    @else
-                    <a href="" class="text-decoration-none text-white">
-                    @endif 
                     <div class="row">
-                            <div class="col-lg-2 col-md-2 col-2">
-                                <div class="icon text-right">
-                                    <i class="fa-2x fas fa-download"></i>
-                                </div>
-                            </div>
-                            <div class="col-lg-10 col-md-10 col-10">
-                                <div class="title font-weight-bold">DOWNLOAD PROSPECTS</div>
-                                <div class="description">
-                                    <span class="text-justify bangla">এখানে ক্লিক করুন</span>
-                                </div>
+                        <div class="col-lg-2 col-md-2 col-2">
+                            <div class="icon text-right">
+                                <i class="fa-2x fas fa-download"></i>
                             </div>
                         </div>
-                    </a>
+                        <div class="col-lg-10 col-md-10 col-10">
+                            <div class="title download font-weight-bold">DOWNLOAD PROSPECTS
+                                <table class="table table-dark d-none position-absolute sub-menu">
+                                    <tbody>
+                                        @if ($prospects)
+                                            @php($i=1)
+                                            @foreach ($prospects as $prospect)
+                                                <tr>
+                                                    <th scope="row">{{ $i++ }}</th>
+                                                    <td>Sample</td>
+                                                    <td><a href="{{ asset($prospect->prospect) }}" download="">Download</a></td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,7 +119,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="wrap bg-secondary text-white p-5 shadow-sm rounded">
-                    <div class="title heading-2 font-weight-bold">Student Registration</div>
+                    <div class="title heading-2 font-weight-bold">Registration</div>
                     <div class="description text-justify bangla">আয়ের সর্ববৃহৎ প্ল্যাটফর্ম এর যোগ দিন এবং বেকার মুক্ত সমাজ গঠনে ভূমিকা রাখুক।</div>
                     <br>
                     <a href="{{ route("student-registration") }}" class="btn btn-outline-warning font-weight-bold">Registration <i class="fas fa-arrow-right"></i></a>
@@ -164,7 +167,7 @@
 </section>
 <section class="students-say pt-5 pb-5">
     <div class="container">
-        <h2 class="text-center font-weight-bold bg-green p-3 shadow rounded">Our Student's Say</h2>
+        <h2 class="text-center font-weight-bold bg-green p-3 shadow rounded">Our Member's Say</h2>
         <div class="slider">
             <div class="owl-carousel">
                 @foreach($testimonials as $testimonial)

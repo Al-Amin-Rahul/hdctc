@@ -74,6 +74,7 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     Route::resource('course', "CourseController");
     Route::resource('prospect', "ProspectController");
     Route::resource('course-detail', "CourseDetailsController");
+    Route::resource('job', "JobController");
     
 });
 

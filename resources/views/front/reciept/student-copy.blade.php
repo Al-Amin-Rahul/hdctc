@@ -1,7 +1,7 @@
 @extends('front.master')
 
 @section('title')
-    HDCTC - STUDENT COPY
+    HDCTC - MEMBER COPY
 @endsection
 
 @section('body')
@@ -9,12 +9,12 @@
         <div class="container pt-5 pb-5">
             @include('message.message')
             <div class="alert alert-light c-blue font-weight-bold">
-                Student Copy
+                Member Copy
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="wrap bg-dark text-white p-5 shadow-sm rounded">
-                        <div class="title display-4 font-weight-bold">Student Copy</div>
+                        <div class="title display-4 font-weight-bold">Member Copy</div>
                         <br>
                         <div class="shadow rounded table-responsive bg-warning text-dark" id="printContent">
                             <table class="table">

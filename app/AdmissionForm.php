@@ -29,6 +29,8 @@ class AdmissionForm extends Model
         {
             $code   =   $code.rand(0,1000);
         }
+        $form->service          = $request->service;
+        $form->service_option   = $request->service_option;
         $form->student_name     = $request->student_name;
         $form->refer_code       = $code;
         $form->dob              = $request->dob;
@@ -43,12 +45,11 @@ class AdmissionForm extends Model
         $form->thana            = $request->thana;
         $form->union            = $request->union;
         $form->post_code        = $request->post_code;
-        $form->cash_details     = $request->cash_details;
-        $form->bank_details     = $request->bank_details;
         
         $form->save();
         Session::put('code', $code);
         Session::put('name', $request->student_name);
+        Session::put('service_option', $request->service_option);
         return;
     }
     public function register()

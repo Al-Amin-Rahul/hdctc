@@ -10,7 +10,7 @@
                     <div class="text-center bg-white pt-5 pb-1">
                         <h2 class="font-weight-bold">Human Development Community to Communication</h2>
                         <span>Muktinagar, Shaghata, Gaibandha</span><br>
-                        <span>Email- <u>hdctc.bd@gmail.com</u>, Website- <u>https://hdctc.com.bd</u></span>
+                        <span>Email- hdctc.bd@gmail.com & Website- https://hdctc.com.bd</span>
                         <h2>Registration Form</h2>
                     </div>
                 </div>
@@ -64,10 +64,11 @@
                                         <div class="col-lg-9">
                                             <input type="radio" value="1" name="gender" id="gender" checked>Male
                                             <input type="radio" value="2" name="gender" id="gender">Female
+                                            <input type="radio" value="3" name="gender" id="gender">Others
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="studentEmail" class="col-lg-3">Email <span class="text-danger">*</span></label>
+                                        <label for="studentEmail" class="col-lg-3">Email (Optional)</label>
                                         <div class="col-lg-9">
                                             <input type="email" name="student_email" value="{{ old("student_email") }}" class="form-control" id="studentEmail">
                                         </div>
@@ -148,6 +149,8 @@
                                         <div class="col-lg-9">
                                             <input type="radio" value="1" name="education" id="educationQ" checked>SSC
                                             <input type="radio" value="2" name="education" id="educationQ">HSC
+                                            <input type="radio" value="3" name="education" id="educationQ">Graduation
+                                            <input type="radio" value="4" name="education" id="educationQ">Others
                                         </div>
                                     </div>
                                 </div>
