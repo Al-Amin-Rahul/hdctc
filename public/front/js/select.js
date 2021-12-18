@@ -146,26 +146,10 @@ $(function() {
                     "Select Option" +
                     "</option>",
                 "<option value=" + "1" + ">" + "বয়স্ক ভাতা" + "</option>",
-                "<option value=" +
-                    "Widow Allowance" +
-                    ">" +
-                    "বিধবা ভাতা" +
-                    "</option>",
-                "<option value=" +
-                    "Pregnant Allowance" +
-                    ">" +
-                    "মাতৃ কালীন ভাতা" +
-                    "</option>",
-                "<option value=" +
-                    "Disabled Allowance" +
-                    ">" +
-                    "প্রতিবন্ধী ভাতা" +
-                    "</option>",
-                "<option value=" +
-                    "Adolescents Allowance" +
-                    ">" +
-                    "কিশোর কিশোরী ভাতা" +
-                    "</option>"
+                "<option value=" + "2" + ">" + "বিধবা ভাতা" + "</option>",
+                "<option value=" + "3" + ">" + "মাতৃ কালীন ভাতা" + "</option>",
+                "<option value=" + "4" + ">" + "প্রতিবন্ধী ভাতা" + "</option>",
+                "<option value=" + "5" + ">" + "কিশোর কিশোরী ভাতা" + "</option>"
             );
         } else if (id == "Medical Benefit") {
             $("#serviceOption").empty();
