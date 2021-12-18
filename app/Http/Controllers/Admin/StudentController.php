@@ -201,4 +201,14 @@ class StudentController extends Controller
             return view('admin.student.union-student', $data);
         }
     }
+
+    public function download($id)
+    {
+        $data['date'] = date('Y-m-d');
+        $data['reg']  = AdmissionForm::select(['refer_code', 'service_option'])->where('id', $id)->first();
+        $customPaper = array(0,0,596,425);
+        $pdf = PDF::loadView('admin.reciept.card', $data)->setPaper($customPaper, 'landscape');
+        // return $pdf->download('hdctc.pdf');
+        return $pdf->stream('hdctc.pdf');
+    }
 }

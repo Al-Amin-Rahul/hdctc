@@ -14,12 +14,66 @@
                     <h2></h2>
                 </div>
                 @include('message.message')
-                <form action="" method="post" class="shadow p-5 rounded" enctype="multipart/form-data">
+                <form action="{{ route('admin.job.store') }}" method="post" class="shadow p-5 rounded" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <label class="control-label col-sm-3" for="Image">Image</label>
+                        <label class="control-label col-sm-3" for="Image">Logo</label>
                         <div class="col-sm-9">
                         <input type="file" name="image" class="form-control" id="Image">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="shortName">Short Name</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="short_name" class="form-control" id="shortName">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="organizationName">Organization Name</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="organization_name" class="form-control" id="organizationName">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="vacancy">Vacancy</label>
+                        <div class="col-sm-9">
+                        <input type="number" name="vacancy" class="form-control" id="vacancy">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="employmentStatus">Employment Status</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="employment_status" class="form-control" id="employmentStatus">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="experience">Experience</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="experience" class="form-control" id="experience">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="age">Age</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="age" class="form-control" id="age">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="jobLocation">Job Location</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="job_location" class="form-control" id="jobLocation">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="salary">Salary</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="salary" class="form-control" id="salary">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-sm-3" for="deadline">Deadline</label>
+                        <div class="col-sm-9">
+                        <input type="date" name="deadline" class="form-control" id="deadline">
                         </div>
                     </div>
                     <div class="form-group row">

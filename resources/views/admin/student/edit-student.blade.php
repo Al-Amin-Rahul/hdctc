@@ -124,30 +124,6 @@
                             <input type="number" name="post_code" value="{{ $student->post_code }}" class="form-control" id="post">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="cashDetails" class="col-lg-3">Cash Details</label>
-                        <div class="col-lg-9">
-                            <input type="text" name="cash_details" value="{{ $student->cash_details }}" class="form-control" id="cashDetails">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="bankDetails" class="col-lg-3">Bank Details</label>
-                        <div class="col-lg-9">
-                            <input type="text" name="bank_details" value="{{ $student->bank_details }}" class="form-control" id="bankDetails">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pay" class="col-lg-3">Payment Date</label>
-                        <div class="col-lg-9">
-                            <input type="date" name="payment_date" value="{{ $student->payment_date }}" class="form-control" id="pay">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="expire" class="col-lg-3">Expire Date</label>
-                        <div class="col-lg-9">
-                            <input type="date" name="expire_date" value="{{ $student->expire_date }}" class="form-control" id="expire">
-                        </div>
-                    </div>
                     <input type="submit" value="Update" name="submit" class="btn btn-primary form-control">
                 </form>
             </div>

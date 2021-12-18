@@ -20,14 +20,18 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('gallery', "HomeController@gallery")->name('gallery');
     Route::get('faq', "HomeController@faq")->name('faq');
     Route::get('course-details/{id}', "HomeController@courseDetails")->name('course-details');
-    Route::get('student-copy', "HomeController@studentCopy")->name('student-copy');
     Route::get('security-policy', "HomeController@securityPolicy")->name('security-policy');
     Route::get('privacy-policy', "HomeController@privacyPolicy")->name('privacy-policy');
     Route::get('terms-of-use', "HomeController@termsOfUse")->name('terms-of-use');
     Route::post('submit-contact', "HomeController@submitContact")->name('submit-contact');
     Route::get('vata', "HomeController@vata")->name('vata');
     Route::get('career', "HomeController@career")->name('career');
-    Route::get('job-details', "HomeController@jobDetails")->name('job-details');
+    Route::get('job-details/{id}', "HomeController@jobDetails")->name('job-details');
+    Route::get('apply-online/{id}', "HomeController@applyOnline")->name('apply-online');
+
+    Route::post('submit-application', "CareerController@submitApplication")->name('submit-application');
+    Route::get('applicants-copy', "CareerController@applicantsCopy")->name('applicants-copy');
+    Route::get('download-application-form', "CareerController@downloadApplicationForm")->name('download-application-form');
 
     Route::get('student-login', "LoginController@showLogin")->name('student-login');
     Route::get('student-logout', "LoginController@studentLogout")->name('student-logout')->middleware('student_login');
@@ -45,7 +49,6 @@ Route::group(['namespace' => 'Front'], function () {
     Route::get('get-mul-union/{id}', "HomeController@getMulUnion")->name('get-mul-union');
 
     Route::post('add-admission', "StudentController@addAdmision")->name('add-admission');
-    Route::get('download-reciept', "StudentController@downloadReciept")->name('download-reciept');
     Route::get('student-profile', "StudentController@studentProfile")->name('student-profile')->middleware('student_login');
     Route::get('daily-work-sheet', "StudentController@dailyWorkSheet")->name('daily-work-sheet')->middleware('student_login');
     Route::get('submit-information', "StudentController@submitInformation")->name('submit-information')->middleware('student_login');
@@ -61,7 +64,8 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     Route::post('search-student', "StudentController@search")->name('search-student');
     Route::post('print-union-student', "StudentController@printUnionStudent")->name('print-union-student');
     Route::post('search-register-student', "StudentRegisterController@search")->name('search-register-student');
-    Route::post('update-student-status', "StudentController@updateStudentStatus")->name('update-student-status');
+    Route::post('update-studDent-status', "StudentController@updateStudentStatus")->name('update-student-status');
+    Route::get('download/{id}', "StudentController@download")->name('download');
     Route::resource('slider', "SliderController");
     Route::resource('student', "StudentController");
     Route::resource('student-register', "StudentRegisterController");

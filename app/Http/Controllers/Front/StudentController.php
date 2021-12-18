@@ -44,15 +44,8 @@ class StudentController extends Controller
         {
             $form = new AdmissionForm();
             $form->insertStudent($request);
-            return redirect()->route('student-copy')->with('success', 'Congratulations Your Application Submitted');
+            return redirect('/')->with('success', 'Congratulations Your Application Submitted');
         }
-    }
-
-    public function downloadReciept()
-    {
-        $data['date'] = date('Y-m-d');
-        $pdf = PDF::loadView('front.reciept.student-invoice', $data);
-        return $pdf->download('hdctc.pdf');
     }
 
     public function studentProfile()

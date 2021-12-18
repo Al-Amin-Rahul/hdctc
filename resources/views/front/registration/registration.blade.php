@@ -29,10 +29,9 @@
                                         <div class="col-lg-9">
                                             <select name="service" id="selectService" class="form-control">
                                                     <option selected="true" disabled>Select Service</option>
-                                                    <option value="1">ভাতা</option>
-                                                    <option value="2">মেডিকেল সুবিধা</option>
-                                                    <option value="3">পারিবারিক খামার</option>
-                                                    <option value="4">প্রশিক্ষণ</option>
+                                                    <option value="Allowance">ভাতা</option>
+                                                    <option value="Medical BeneFit">মেডিকেল সুবিধা</option>
+                                                    <option value="Training">প্রশিক্ষণ</option>
                                             </select>
                                         </div>
                                     </div>

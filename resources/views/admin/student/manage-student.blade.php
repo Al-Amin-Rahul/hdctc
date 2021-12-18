@@ -78,10 +78,6 @@
               <th>Thana</th>
               <th>Union</th>
               <th>Post Code</th>
-              <th>Cash Details</th>
-              <th>Bank Details</th>
-              <th>Payment Date</th>
-              <th>Expire Date</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -103,10 +99,6 @@
               <th>Thana</th>
               <th>Union</th>
               <th>Post Code</th>
-              <th>Cash Details</th>
-              <th>Bank Details</th>
-              <th>Payment Date</th>
-              <th>Expire Date</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -130,10 +122,6 @@
               <td>{{ $student->thana }}</td>
               <td>{{ $student->union }}</td>
               <td>{{ $student->post_code }}</td>
-              <td>{{ $student->cash_details }}</td>
-              <td>{{ $student->bank_details }}</td>
-              <td>{{ $student->payment_date }}</td>
-              <td>{{ $student->expire_date }}</td>
               <td>
                 <form action="{{ route("admin.update-student-status")}}" method="post">
                   @csrf
@@ -153,7 +141,8 @@
                       @csrf
                       @method("DELETE")
                       <button class="btn-circle btn-danger" type="submit" onclick="return confirm('Are your sure')"><span class="fa fa-trash"></span></button>
-                  </form>
+                  </form><br>
+                  <a href="{{ route("admin.download", ["id" => $student->id ]) }}" class="btn-circle btn-warning"><i class="fas fa-download"></i></a>
               </td>
             </tr>
             @endforeach

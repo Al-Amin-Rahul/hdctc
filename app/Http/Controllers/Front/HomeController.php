@@ -16,6 +16,7 @@ use App\Testimonial;
 use App\Prospect;
 use App\Course;
 use App\CourseDetail;
+use App\Job;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -91,10 +92,6 @@ class HomeController extends Controller
         $data['course']    =    CourseDetail::where("course_id", $id)->first();
         return view('front.course-details.course-details', $data);
     }
-    public function studentCopy()
-    {
-        return view('front.reciept.student-copy');
-    }
     public function registration()
     {
         $data['divisions']   =   Division::all();
@@ -153,10 +150,18 @@ class HomeController extends Controller
     }
     public function career()
     {
-        return view('front.career.career');
+        $data['jobs']   =   Job::all();
+        return view('front.career.career', $data);
     }
-    public function jobDetails()
+    public function jobDetails($id)
     {
-        return view('front.career.job-details');
+        $data['job']    =   Job::where('id',$id)->first();
+        return view('front.career.job-details', $data);
+    }
+    public function applyOnline($id)
+    {
+        $data['id']          =  $id;
+        $data['divisions']   =   Division::all();
+        return view('front.career.apply-now', $data);
     }
 }

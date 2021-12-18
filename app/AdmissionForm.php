@@ -45,11 +45,9 @@ class AdmissionForm extends Model
         $form->thana            = $request->thana;
         $form->union            = $request->union;
         $form->post_code        = $request->post_code;
+        $form->mobile_banking   = $request->mobile_banking;
         
         $form->save();
-        Session::put('code', $code);
-        Session::put('name', $request->student_name);
-        Session::put('service_option', $request->service_option);
         return;
     }
     public function register()

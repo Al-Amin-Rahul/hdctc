@@ -17,24 +17,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($jobs as $job)
                     <tr>
-                    <th scope="row"><img class="img-fluid" src="{{ asset('front/images/logo.png') }}" alt="" style="width:100px;"></th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td><a href="{{ route("job-details") }}" target="_blank">View More Details</a></td>
+                        <th scope="row"><img class="img-fluid" src="{{ asset($job->image) }}" alt="" style="width:100px;"></th>
+                        <td>{{ $job->short_name }}</td>
+                        <td>{{ $job->organization_name }}</td>
+                        <td><a href="{{ route("job-details", ['id' => $job->id]) }}" target="_blank">View More Details</a></td>
                     </tr>
-                    <tr>
-                    <th scope="row"><img class="img-fluid" src="{{ asset('front/images/logo.png') }}" alt="" style="width:100px;"></th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td><a href="{{ route("job-details") }}" target="_blank">View More Details</a></td>
-                    </tr>
-                    <tr>
-                    <th scope="row"><img class="img-fluid" src="{{ asset('front/images/logo.png') }}" alt="" style="width:100px;"></th>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
-                    <td><a href="{{ route("job-details") }}" target="_blank">View More Details</a></td>
-                    </tr>
+                    @endforeach
                 </tbody>
                 </table>
         </div>

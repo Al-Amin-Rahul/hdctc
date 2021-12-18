@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Job;
+use Illuminate\Support\Facades\Validator;
 
 class JobController extends Controller
 {
@@ -35,7 +37,30 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $job =   new Job();
+        $validator = Validator::make($request->all(), [
+            "image"              => "required",
+            "short_name"         => "required",
+            "organization_name"  => "required",
+            "vacancy"            => "required",
+            "employment_status"  => "required",
+            "experience"         => "required",
+            "age"                => "required",
+            "job_location"       => "required",
+            "salary"             => "required",
+            "deadline"           => "required",
+            "description"        => "required"
+        ]);
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        else
+        {
+            $job->insertJob($request);
+            return redirect()->back()->with('message', 'Job Added Successfully !');
+        }
     }
 
     /**
