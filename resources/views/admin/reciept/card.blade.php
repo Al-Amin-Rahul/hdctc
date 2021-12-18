@@ -59,7 +59,15 @@
             HDCTC
         </div>
         <div class="box2">
-            <u>{{ $reg->service_option }}</u>
+            @if($reg->service==1 && $reg->service_option==1)
+                <u>Old Age Allowance</u>
+            @elseif($reg->service==1 && $reg->service_option==2)
+                <u>Widow Allowance</u>
+            @elseif($reg->service==1 && $reg->service_option==3)
+                <u>Pregnant Allowance</u>
+            @else
+                <u>Allowance</u>
+            @endif
         </div>
         <div class="box3" style="border: 1px solid black;margin-top: -40px">
             <div class="pic" style="padding: 50px 0px 50px 0px;text-align: center">Picture</div>
