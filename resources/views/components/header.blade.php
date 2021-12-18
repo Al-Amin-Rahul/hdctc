@@ -69,7 +69,7 @@
                             </ul>
                         </li>
                         <li class="nav-link border-right border-dark"><a href="{{ route("career") }}" class="text-white"><i class="fas fa-link text-dark"></i> Career</a></li>
-                        <li class="nav-link border-right border-dark"><a href="{{ route("student-registration") }}" class="text-white"><i class="text-dark fas fa-address-card"></i> Registration</a></li>
+                        <li class="nav-link border-right border-dark"><a href="{{ route("registration") }}" class="text-white"><i class="text-dark fas fa-address-card"></i> Registration</a></li>
                         <li class="nav-link border-right border-dark"><a href="{{ route("contact-us") }}" class="text-white"><i class="fas fa-mobile text-dark"></i> Contact</a></li>
                     </ul>
                 </div>

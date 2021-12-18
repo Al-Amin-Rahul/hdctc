@@ -40,7 +40,7 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('submit-register', "RegisterController@submitRegister")->name('submit-register');
     Route::get('student-dashboard', "DashboardController@index")->name('student-dashboard')->middleware('student_login');
 
-    Route::get('student-registration', "HomeController@registration")->name('student-registration');
+    Route::get('registration', "HomeController@registration")->name('registration');
     Route::get('get-district/{id}', "HomeController@getDistrict")->name('get-district');
     Route::get('get-thana/{id}', "HomeController@getThana")->name('get-thana');
     Route::get('get-union/{id}', "HomeController@getUnion")->name('get-union');
