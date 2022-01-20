@@ -6,7 +6,7 @@ HDCTC - ABOUT
 
 @section('body')
     <section class="about bangla">
-        <div class="banner">
+        <div class="banner container">
             <img src="{{ asset("/") }}front/images/about.jpg" class="img-fluid" alt="">
         </div>
         <div class="about-slogan h3 text-white position-absolute">বেকারত্ব দূরীকরণ আমাদের প্রধান লক্ষ্য।</div>

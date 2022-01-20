@@ -15,8 +15,8 @@
                 <ul class="nav justify-content-end">
                     @if(Session::get('student_id'))
                     @else
-                        <li class="nav-link"><a href="{{ route("student-signup") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  SignUp</a></li>
-                        <li class="nav-link"><a href="{{ route("student-login") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  Login</a></li>
+                        <li class="nav-link"><a href="{{ route("user-signup") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  SignUp</a></li>
+                        <li class="nav-link"><a href="{{ route("user-login") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  Login</a></li>
                     @endif
                         <li class="nav-link pr-0"><a href="{{ route("faq") }}" class="text-decoration-none text-white"><i class="fas fa-question"></i>  Faq</a></li>
                 </ul>
@@ -36,11 +36,11 @@
             <div class="col-lg-9">
                 <ul class="nav justify-content-end">
                     <li class="nav-link border-right">Email <br><span class="font-weight-bold"><i class="fas fa-envelope text-danger"></i> hdctc.bd@gmail.com</span></li>
-                    <li class="nav-link">Phone <br><span class="font-weight-bold"><i class="fas fa-mobile text-danger"></i> +88 01406-175101</span></li>
+                    <li class="nav-link">Phone <br><span class="font-weight-bold"><i class="fas fa-mobile text-danger"></i> +88 01939-244833</span></li>
                     @if(Session::get('student_id'))
-                        <li class="nav-link pr-0"><a href="{{ route("student-dashboard") }}" class="btn btn-outline-primary"><i class="fas fa-bars text-dark"></i> Dashboard</a></li>
+                        <li class="nav-link pr-0"><a href="{{ route("user-dashboard") }}" class="btn btn-outline-primary"><i class="fas fa-bars text-dark"></i> Dashboard</a></li>
                     @else
-                        <li class="nav-link pr-0"><a href="{{ route("student-login") }}" class="btn btn-outline-primary">Student Login <i class="fas fa-arrow-right text-danger"></i></a></li>
+                        <li class="nav-link pr-0"><a href="{{ route("user-login") }}" class="btn btn-outline-primary">Login <i class="fas fa-arrow-right text-danger"></i></a></li>
                     @endif
                 </ul>
             </div>
@@ -97,8 +97,8 @@
                 <ul class="nav justify-content-center">
                     @if(Session::get('student_id'))
                     @else
-                        <li class="nav-link"><a href="{{ route("student-signup") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  SignUp</a></li>
-                        <li class="nav-link"><a href="{{ route("student-login") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  Login</a></li>
+                        <li class="nav-link"><a href="{{ route("user-signup") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  SignUp</a></li>
+                        <li class="nav-link"><a href="{{ route("user-login") }}" class="text-decoration-none text-white"><i class="fas fa-user"></i>  Login</a></li>
                     @endif
                         <li class="nav-link"><a href="{{ route("faq") }}" class="text-decoration-none text-white"><i class="fas fa-question"></i>  Faq</a></li>
                 </ul>
@@ -118,7 +118,7 @@
             </div>
             <div class="col-sm-6 col-6">
                 <ul class="nav justify-content-center">
-                    <li class="nav-link border-left">Phone <span class="font-weight-bold"><i class="fas fa-mobile text-danger"></i> <br> 01406175101</span></li>
+                    <li class="nav-link border-left">Phone <span class="font-weight-bold"><i class="fas fa-mobile text-danger"></i> <br> +88 01939-244833</span></li>
                 </ul>
             </div>
         </div>

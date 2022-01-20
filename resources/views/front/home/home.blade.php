@@ -10,9 +10,9 @@
 @endsection
 @section('body')
 <section class="home-slider">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-12 px-0">
+            <div class="col-lg-12">
             
                 <div id="carouselChange" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" id="carousel-inner">
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 pb-md-0 pb-lg-0 pb-5">
                 <div class="wrap shadow bg-pink p-5 rounded">
-                    <a href="{{ route("student-registration") }}" class="text-decoration-none text-white">
+                    <a href="{{ route("registration") }}" class="text-decoration-none text-white">
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-2">
                                 <div class="icon text-right">
@@ -122,7 +122,7 @@
                     <div class="title heading-2 font-weight-bold">Registration</div>
                     <div class="description text-justify bangla">আয়ের সর্ববৃহৎ প্ল্যাটফর্ম এর যোগ দিন এবং বেকার মুক্ত সমাজ গঠনে ভূমিকা রাখুক।</div>
                     <br>
-                    <a href="{{ route("student-registration") }}" class="btn btn-outline-warning font-weight-bold">Registration <i class="fas fa-arrow-right"></i></a>
+                    <a href="{{ route("registration") }}" class="btn btn-outline-warning font-weight-bold">Registration <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

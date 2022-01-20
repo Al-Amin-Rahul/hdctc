@@ -32,8 +32,10 @@ blink {
     }
 }
 .about-slogan {
-    bottom: 20%;
-    right: 5%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: rgba(14, 15, 14, 0.6);
 }
 .bangla {
@@ -137,6 +139,9 @@ a {
 }
 @media only screen and (min-width: 425px) {
     .about-slogan {
-        text-align: center !important;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }

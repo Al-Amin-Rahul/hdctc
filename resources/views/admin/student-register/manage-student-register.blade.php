@@ -68,7 +68,7 @@
                     </select>
                     <hr>
                     <input class="btn btn-primary btn-sm btn-block" type="submit" name="update" value="Update" >
-                    </form>
+                  </form>
               </td>
               <td>
                 <form action="{{route("admin.student-register.destroy",['student_register' => $student->id])}}" method="post">

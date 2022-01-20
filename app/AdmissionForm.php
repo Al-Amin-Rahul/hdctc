@@ -31,6 +31,7 @@ class AdmissionForm extends Model
         }
         $form->service          = $request->service;
         $form->service_option   = $request->service_option;
+        $form->nid              = $request->nid;
         $form->student_name     = $request->student_name;
         $form->refer_code       = $code;
         $form->dob              = $request->dob;

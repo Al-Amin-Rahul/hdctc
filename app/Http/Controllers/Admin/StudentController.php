@@ -205,7 +205,11 @@ class StudentController extends Controller
     public function download($id)
     {
         $data['date'] = date('Y-m-d');
-        $data['reg']  = AdmissionForm::select(['refer_code', 'service_option', 'service'])->where('id', $id)->first();
+        $data['reg']  = AdmissionForm::where('id', $id)->first();
+        $data['div']  = Division::select('div_name')->where('id', $data['reg']->division)->first();
+        $data['dis']  = District::select('dis_name')->where('id', $data['reg']->district)->first();
+        $data['thana']  = Thana::select('thana_name')->where('id', $data['reg']->thana)->first();
+        $data['union']  = Union::select('union_name')->where('id', $data['reg']->union)->first();
         $customPaper = array(0,0,596,425);
         $pdf = PDF::loadView('admin.reciept.card', $data)->setPaper($customPaper, 'landscape');
         return $pdf->download('hdctc.pdf');

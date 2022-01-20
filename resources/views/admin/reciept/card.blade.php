@@ -62,11 +62,29 @@
             @if($reg->service==1 && $reg->service_option==1)
                 <u>Old Age Allowance</u>
             @elseif($reg->service==1 && $reg->service_option==2)
-                <u>Widow Allowance</u>
+                <u>Widow's Allowance</u>
             @elseif($reg->service==1 && $reg->service_option==3)
-                <u>Pregnant Allowance</u>
+                <u>Maternity Allowance</u>
+            @elseif($reg->service==1 && $reg->service_option==4)
+                <u>Disability Allowance</u>
+            @elseif($reg->service==1 && $reg->service_option==5)
+                <u>Adolescent Allowance</u>
+            @elseif($reg->service==2 && $reg->service_option==1)
+                <u>Eye Camp</u>
+            @elseif($reg->service==2 && $reg->service_option==2)
+                <u>Health Camp</u>
+            @elseif($reg->service==2 && $reg->service_option==3)
+                <u>Blood Group Test</u>
+            @elseif($reg->service==2 && $reg->service_option==4)
+                <u>Drug Cures</u>
+            @elseif($reg->service==3 && $reg->service_option==1)
+                <u>Computer Training</u>
+            @elseif($reg->service==3 && $reg->service_option==2)
+                <u>Sewing Training</u>
+            @elseif($reg->service==3 && $reg->service_option==3)
+                <u>Beauty Parlor</u>
             @else
-                <u>Allowance</u>
+                <u>Handicraft And Cottage Industries</u>
             @endif
         </div>
         <div class="box3" style="border: 1px solid black;margin-top: -40px">
@@ -75,13 +93,17 @@
     </div>
     <section>
         <div class="info" style="margin-top: 100px;">
-            <div class="name">Name:</div>
-            <div class="f_name" style="margin-top: 15px">Father's Name:</div>
-            <div class="m_name" style="margin-top: 15px">Mother's Name:</div>
-            <div class="vill" style="margin-top: 15px">Village...................................... Post Office.................................</div>
-            <div class="union" style="margin-top: 15px">Union Name...................................... Upazila.................................</div>
-            <div class="dist" style="margin-top: 15px">District...................................... Issue Date.................................</div>
-            <div class="exp" style="margin-top: 15px">Expire Date................................</div>
+            <div class="name"><span style="font-weight: 600">Name :</span> {{ $reg->student_name }}</div>
+            <div class="f_name" style="margin-top: 15px"><span style="font-weight: 600">Father's Name :</span> {{ $reg->father_name }}</div>
+            <div class="m_name" style="margin-top: 15px"><span style="font-weight: 600">Mother's Name :</span> {{ $reg->mother_name }}</div>
+            <div class="vill" style="margin-top: 15px"><span style="font-weight: 600">Division :</span> <span>{{ $div->div_name }}</span> <span style="margin-left: 30px;font-weight: 600">Post Code : </span> {{ $reg->post_code }}</div>
+            <div class="union" style="margin-top: 15px"><span style="font-weight: 600">District Name :</span> {{ $dis->dis_name }} <span style="margin-left: 30px;font-weight: 600">Upazila : </span> {{ $thana->thana_name }}</div>
+            <div class="dist" style="margin-top: 15px"><span style="font-weight: 600">Union :</span> {{ $union->union_name }} <span style="margin-left: 30px;font-weight: 600">Issue Date : </span> {{ $reg->created_at->format('Y-m-d') }}</div>
+            @if ($reg->service == 2)
+                <div class="exp" style="margin-top: 15px"><span style="font-weight: 600">Expire Date :</span>{{ $reg->created_at->addYear(1)->format('Y-m-d') }}</div>
+            @else
+                <div class="exp" style="margin-top: 15px"><span style="font-weight: 600">Expire Date :</span>{{ $reg->created_at->addYear(5)->format('Y-m-d') }}</div>
+            @endif
         </div>
     </section>
     <section>
@@ -90,7 +112,7 @@
                 <span style="border-top: 2px solid black">Beneficiary's Signature</span>
             </div>
             <div class="fot2">
-                <span style="border-top: 2px solid black">Approve By</span>
+                <span style="border-top: 2px solid black; margin-left: 20px">Approve By</span>
             </div>
         </div>
     </section>

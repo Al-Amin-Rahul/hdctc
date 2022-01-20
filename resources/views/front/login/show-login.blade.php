@@ -26,7 +26,7 @@ HDCTC - LOGIN
                             <div class="form-group">
                                 <input type="submit" value="Login" class="form-control btn btn-outline-primary">
                             </div>
-                            <small><span>Don't Have An Account <a href="{{ route("student-signup") }}">SignUp</a></span></small>
+                            <small><span>Don't Have An Account <a href="{{ route("user-signup") }}">SignUp</a></span></small>
                         </form>
                     </div>
                 </div>

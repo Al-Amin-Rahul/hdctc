@@ -16,7 +16,9 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('job_id');
-            $table->string('refer_code');
+            $table->string('refer_code', 191)->unique();
+            $table->string('nid', 191)->unique();
+            $table->string('image');
             $table->string('applicants_name');
             $table->string('fathers_name');
             $table->string('mothers_name');
@@ -58,6 +60,7 @@ class CreateApplicationsTable extends Migration
             $table->string('graduation_result')->nullable();
             $table->string('graduation_group')->nullable();
             $table->string('graduation_pass_year')->nullable();
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

@@ -37,6 +37,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
         <a class="collapse-item" href="{{ route("admin.job.create") }}"><i class="fas fa-fw fa-plus"></i> Add Job</a>
         <a class="collapse-item" href="{{ route("admin.job.index") }}"><i class="fas fa-fw fa-wrench"></i> Manage Job</a>
+        <a class="collapse-item" href="{{ route("admin.manage-success-application") }}"><i class="fas fa-fw fa-wrench"></i> Manage Success Application</a>
         </div>
     </div>
 </li>

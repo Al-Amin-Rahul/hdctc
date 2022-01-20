@@ -29,9 +29,9 @@
                                         <div class="col-lg-9">
                                             <select name="service" id="selectService" class="form-control">
                                                     <option selected="true" disabled>Select Service</option>
-                                                    <option value="Allowance">ভাতা</option>
-                                                    <option value="Medical BeneFit">মেডিকেল সুবিধা</option>
-                                                    <option value="Training">প্রশিক্ষণ</option>
+                                                    <option value="1">ভাতা</option>
+                                                    <option value="2">মেডিকেল সুবিধা</option>
+                                                    <option value="3">প্রশিক্ষণ</option>
                                             </select>
                                         </div>
                                     </div>
@@ -39,6 +39,16 @@
                                         <label for="service_option" class="col-lg-3">Service Options<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
                                             <select name="service_option" id="serviceOption" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group row">
+                                        <label for="nid" class="col-lg-4">NID/Birth Registration/Vaccine Registration<span class="text-danger">*</span></label>
+                                        <div class="col-lg-8">
+                                            <input type="text" name="nid" class="form-control" id="">
                                         </div>
                                     </div>
                                 </div>

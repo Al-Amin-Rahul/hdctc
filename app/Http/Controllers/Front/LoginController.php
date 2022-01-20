@@ -25,7 +25,7 @@ class LoginController extends Controller
                 Session::put("student_name", $student->name);
                 Session::put("refer_code", $student->refer_code);
                 
-                return redirect()->route('student-dashboard')->with('success', 'Welcome Back '.Session::get('student_name'));
+                return redirect()->route('user-dashboard')->with('success', 'Welcome Back '.Session::get('student_name'));
             }
             else
             {

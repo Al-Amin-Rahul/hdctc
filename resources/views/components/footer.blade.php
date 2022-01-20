@@ -5,8 +5,8 @@
                 <ul class="pl-0">
                     <li class="nav-link pl-0 font-weight-bolder text-dark">CONTACT US</li>
                     <li class="nav-link pl-0 text-white"><i class="fas fa-envelope text-dark"></i> hdctc.bd@gmail.com</li>
-                    <li class="nav-link pl-0 text-white"><i class="fas fa-mobile text-dark"></i> 01406175101</li>
-                    <li class="nav-link pl-0 text-white"><i class="fa fa-map-marker-alt text-dark"></i> Muktinagar, Shaghata, Gaibandha</li>
+                    <li class="nav-link pl-0 text-white"><i class="fas fa-mobile text-dark"></i> +88 01939-244833</li>
+                    <li class="nav-link pl-0 text-white"><i class="fa fa-map-marker-alt text-dark"></i> Shaghata, Gaibandha</li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-12 text-md-center text-lg-left text-center">

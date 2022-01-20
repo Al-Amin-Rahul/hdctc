@@ -1,4 +1,20 @@
 $(function() {
+    $(document).on("submit", "#UpdateStatus", function(arg) {
+        let url = $(this).attr("action");
+        let method = $(this).attr("method");
+        let data = $(this).serialize();
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            success: data => {
+                return getApp();
+            }
+        });
+        arg.preventDefault();
+    });
+
     $(document).on("change", "#selectDiv", function(event) {
         let id = $("#selectDiv").val();
 
@@ -137,7 +153,7 @@ $(function() {
 
     $(document).on("change", "#selectService", function(event) {
         let id = $("#selectService").val();
-        if (id == "Allowance") {
+        if (id == 1) {
             $("#serviceOption").empty();
             $("#serviceOption").append(
                 "<option selected=" +
@@ -151,7 +167,7 @@ $(function() {
                 "<option value=" + "4" + ">" + "প্রতিবন্ধী ভাতা" + "</option>",
                 "<option value=" + "5" + ">" + "কিশোর কিশোরী ভাতা" + "</option>"
             );
-        } else if (id == "Medical Benefit") {
+        } else if (id == 2) {
             $("#serviceOption").empty();
             $("#serviceOption").append(
                 "<option selected=" +
@@ -188,7 +204,7 @@ $(function() {
                 "<option value=" + "2" + ">" + "সেলাই প্রশিক্ষণ" + "</option>",
                 "<option value=" + "3" + ">" + "বিউটি পার্লার" + "</option>",
                 "<option value=" +
-                    "3" +
+                    "4" +
                     ">" +
                     "হস্ত ও কুটির শিল্প" +
                     "</option>"
@@ -196,3 +212,14 @@ $(function() {
         }
     });
 });
+function getApp() {
+    let url = $("#appShow").data("url");
+    $.ajax({
+        url: url,
+        type: "GET",
+        dataType: "HTML",
+        success: function(response) {
+            $("#showApp").html(response);
+        }
+    });
+}

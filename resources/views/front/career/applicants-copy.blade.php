@@ -40,14 +40,18 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 10px">
                 <div class="col-lg-12">
                     <table class="table-bordered" style="width: 100%">
                         <tbody>
-                            <tr style="background-color: rgb(185, 184, 184)">
-                                <td rowspan="10" style="width: 200px;"></td>
-                                <td>Name Of The Post</td>
-                                <td>
+                            <tr>
+                                <td rowspan="10" style="width: 200px;">
+                                    @if(session()->has("photo"))
+                                        <img src="{{ session("photo") }}" class="img-fluid" alt="">
+                                    @endif
+                                </td>
+                                <td style="background-color: rgb(185, 184, 184)">Name Of The Post</td>
+                                <td style="background-color: rgb(185, 184, 184)">
                                     @if(session()->has("job_name"))
                                         {{ session("job_name") }}
                                     @endif
@@ -333,14 +337,6 @@
                                 </td>
                             </tr>
                             @endif
-                        </tbody>
-                    </table>
-                    <table class="table-bordered" style="width: 100%;margin-top: 20px">
-                        <tbody>
-                            <tr style="background-color: rgb(185, 184, 184)">
-                                <th>Departmental Candidate Status</th>
-                                <th>N/A</th>
-                            </tr>
                         </tbody>
                     </table>
                     <p>I declare that the information provided in this form are correct, true and complete to the best of my knowledge and belief. If any information is found false, incorrect, and incomplete or if any detected before or after examination, any action can be taken against me by the Authority including cancellation of my candidature.</p>

@@ -86,11 +86,11 @@
               <td>{{ $student->bank_details }}</td>
               <td>
                   <a href="{{ route("admin.student.edit", ["student" => $student->id ]) }}" class="btn-circle btn-primary"><i class="fas fa-edit"></i></a></br></br>
-                  <form action="{{route("admin.student.destroy",['student' => $student->id])}}" method="post">
+                  {{-- <form action="{{route("admin.student.destroy",['student' => $student->id])}}" method="post">
                       @csrf
                       @method("DELETE")
                       <button class="btn-circle btn-danger" type="submit" onclick="return confirm('Are your sure')"><span class="fa fa-trash"></span></button>
-                  </form>
+                  </form> --}}
               </td>
             </tr>
             @endforeach

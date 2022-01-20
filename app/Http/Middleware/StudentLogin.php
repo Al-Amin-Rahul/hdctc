@@ -22,7 +22,7 @@ class StudentLogin
         }
         else
         {
-            return redirect()->route('student-login');
+            return redirect()->route('user-login');
         }
     }
 }

@@ -19,11 +19,11 @@ class StudentController extends Controller
     public function addAdmision(Request $request){
         $validator = Validator::make($request->all(), [
             "service"       => "required",
+            "nid"           => "required|unique:admission_forms,nid",
             "service_option"=> "required",
             "student_name"  => "required",
             "dob"           => "required",
             "gender"        => "required",
-            "student_email" => "unique:admission_forms,student_email",
             "student_phone" => "required",
             "education"     => "required",
             "father_name"   => "required",

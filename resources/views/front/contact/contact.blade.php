@@ -17,7 +17,7 @@ HDCTC - CONTACT
                         <div class="col-lg-12">
                             <div class="wrap shadow p-3 bg-yellow rounded">
                                 <div class="icon"><i class="fas fa-home c-pink fa-2x"></i></div>
-                                <div class="address font-weight-bold">Muktinagar, Shaghata, Gaibandha</div>
+                                <div class="address font-weight-bold">Shaghata, Gaibandha</div>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ HDCTC - CONTACT
                         <div class="col-lg-12">
                             <div class="wrap shadow p-3 bg-deepblue rounded">
                                 <div class="icon"><i class="fas fa-mobile c-pink fa-2x"></i></div>
-                                <div class="phone font-weight-bold text-white">+88 01406-175101</div>
+                                <div class="phone font-weight-bold text-white">+88 01939244833</div>
                             </div>
                         </div>
                     </div>

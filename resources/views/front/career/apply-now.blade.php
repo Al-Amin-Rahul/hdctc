@@ -11,7 +11,7 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10">
                     @include('message.message')
-                    <form action="{{ route('submit-application') }}" method="post" class="bg-white p-3">
+                    <form action="{{ route('submit-application') }}" method="post" class="bg-white p-3" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="job_id" value="{{ $id }}">
                         <div class="form-group row">
@@ -30,6 +30,12 @@
                             <label for="mothersName" class="col-lg-3">Mother's Name <span class="text-danger">*</span></label>
                             <div class="col-lg-9">
                                 <input type="text" name="mothers_name" class="form-control" value="{{ old("mothers_name") }}" id="mothersName">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="nid" class="col-lg-3">NID <span class="text-danger">*</span></label>
+                            <div class="col-lg-9">
+                                <input type="number" name="nid" class="form-control" value="{{ old("nid") }}" id="nid">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -74,6 +80,12 @@
                             <div class="col-lg-9">
                                 <input type="radio" value="Married" name="maritial" id="maritial" checked>Married
                                 <input type="radio" value="Single" name="maritial" id="maritial">Single
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="photo" class="col-lg-3">Image(2*2 Inches)<span class="text-danger">*</span></label>
+                            <div class="col-lg-9">
+                                <input type="file" name="photo" class="form-control" id="">
                             </div>
                         </div>
                         <div class="row pt-5">

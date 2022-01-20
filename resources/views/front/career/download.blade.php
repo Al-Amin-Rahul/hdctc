@@ -54,7 +54,7 @@
             </tbody>
         </table>
     </section>
-    <section style="margin-top: 20px">
+    <section style="margin-top: 20px;margin-bottom: 20px;">
         <div class="app" style="text-align: center">Applicant Form (Applicant's Copy)</div>
     </section>
     <section>
@@ -76,10 +76,14 @@
         <div class="wrap">
             <table class="" style="width: 100%;margin-top: 20px">
                 <tbody>
-                    <tr style="background-color: rgb(185, 184, 184)">
-                        <td rowspan="10" style="width: 200px;"></td>
-                        <td>Name Of The Post</td>
-                        <td>
+                    <tr>
+                        <td rowspan="10" style="width: 200px;">
+                            @if(session()->has("photo"))
+                                <img src="{{ session("photo") }}" style="width: 200px;" alt="">
+                            @endif
+                        </td>
+                        <td style="background-color: rgb(185, 184, 184)">Name Of The Post</td>
+                        <td style="background-color: rgb(185, 184, 184)">
                             @if(session()->has("job_name"))
                                 {{ session("job_name") }}
                             @endif
@@ -162,7 +166,7 @@
         </div>
     </section>
     <section>
-        <div class="wrap">
+        <div class="wrap" style="margin-top: 5px;margin-bottom: 5px">
             <div class="h6">Address Information :</div>
                 <table class="" style="width: 100%">
                     <tbody>
@@ -242,7 +246,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="h6">Academic Qualifications :</div>
+                <div class="h6" style="margin-top: 5px;margin-bottom: 5px">Academic Qualifications :</div>
                 <table class="table-bordered" style="width: 100%">
                     <thead>
                         <tr style="background-color: rgb(185, 184, 184)">
@@ -363,14 +367,6 @@
                             <td>N/A</td>
                         </tr>
                         @endif
-                    </tbody>
-                </table>
-                <table class="table-bordered" style="width: 100%;margin-top: 20px">
-                    <tbody>
-                        <tr style="background-color: rgb(185, 184, 184)">
-                            <th>Departmental Candidate Status</th>
-                            <th>N/A</th>
-                        </tr>
                     </tbody>
                 </table>
                 <p>I declare that the information provided in this form are correct, true and complete to the best of my knowledge and belief. If any information is found false, incorrect, and incomplete or if any detected before or after examination, any action can be taken against me by the Authority including cancellation of my candidature.</p>

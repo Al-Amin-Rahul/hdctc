@@ -20,7 +20,7 @@
         <li class="nav-link"><a href="{{ route("registration") }}" class="text-white"><i class="text-dark fas fa-address-card"></i> Registration</a></li>
         <li class="nav-link"><a href="{{ route("contact-us") }}" class="text-white"><i class="fas fa-mobile text-dark"></i> Contact</a></li>
         @if(Session::get('student_id'))
-        <li class="nav-link"><a href="{{ route("student-dashboard") }}" class="text-white"><i class="fas fa-bars text-dark"></i> Dashboard</a></li>
+        <li class="nav-link"><a href="{{ route("user-dashboard") }}" class="text-white"><i class="fas fa-bars text-dark"></i> Dashboard</a></li>
         @endif
     </ul>
 </div>

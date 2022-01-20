@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Job;
+use App\Application;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class JobController extends Controller
 {
@@ -16,7 +18,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $data['jobs']   =   Job::all();
+        return view('admin.job.manage-job', $data);
     }
 
     /**
@@ -71,7 +74,9 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['app']    =   Application::where('id', $id)->first();
+        $data['job']    =   Job::where('id', $data['app']->job_id)->first();
+        return view('admin.job.app-details', $data);
     }
 
     /**
@@ -105,6 +110,50 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job    =   Job::find($id);
+        $apps   =   Application::where('job_id', $id)->get();
+        foreach($apps as $app)
+        {
+            $app->delete();
+        }
+        File::delete($job->image);
+        $job->delete();
+        return redirect()->back()->with('message', 'Deleted');
+    }
+
+    public function deleteApp($id)
+    {
+        $app    =   Application::find($id);
+        File::delete($app->image);
+        $app->delete();
+        return redirect()->back()->with('message', 'Deleted');
+    }
+
+    
+    public function successApplication()
+    {
+        $data['apps']   =   Application::where('status', 'Success')->get();
+        return view('admin.job.manage-success-application', $data);
+    }
+    public function jobApplication($id)
+    {
+        $data['apps']   =   Application::where('status', 'Pending')->where('job_id', $id)->get();
+        return view('admin.job.manage-job-application', $data);
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $student = Application::find($request->id);
+
+        $student->update([
+            "status" => $request->status
+
+        ]);
+    }
+
+    public function showApp()
+    {
+        $data['apps']   =   Application::where('status', 'Pending')->get();
+        return view('admin.job.show-app', $data);
     }
 }

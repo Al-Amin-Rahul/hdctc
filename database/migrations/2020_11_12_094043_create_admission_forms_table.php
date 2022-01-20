@@ -18,11 +18,12 @@ class CreateAdmissionFormsTable extends Migration
             $table->string('student_name');
             $table->string('service');
             $table->string('service_option');
+            $table->string('nid', 191)->unique();
             $table->string('mobile_banking');
             $table->string('refer_code', 191)->unique();
             $table->string('dob');
             $table->string('gender');
-            $table->string('student_email', 191)->unique()->nullable();
+            $table->string('student_email', 191)->nullable();
             $table->string('student_phone');
             $table->string('education');
             $table->string('father_name');
@@ -32,6 +33,7 @@ class CreateAdmissionFormsTable extends Migration
             $table->string('thana');
             $table->string('union');
             $table->integer('post_code');
+            $table->string('payment_date')->nullable();
             $table->string('expire_date')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();
