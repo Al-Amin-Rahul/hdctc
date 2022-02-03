@@ -1,4 +1,5 @@
 $(function() {
+    //application
     $(document).on("submit", "#UpdateStatus", function(arg) {
         let url = $(this).attr("action");
         let method = $(this).attr("method");
@@ -10,6 +11,38 @@ $(function() {
             data: data,
             success: data => {
                 return getApp();
+            }
+        });
+        arg.preventDefault();
+    });
+    //admin
+    $(document).on("submit", "#updateStudentStatus", function(arg) {
+        let url = $(this).attr("action");
+        let method = $(this).attr("method");
+        let data = $(this).serialize();
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            success: data => {
+                return getStudent();
+            }
+        });
+        arg.preventDefault();
+    });
+    //front
+    $(document).on("submit", "#updateStudentStatusFront", function(arg) {
+        let url = $(this).attr("action");
+        let method = $(this).attr("method");
+        let data = $(this).serialize();
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            success: data => {
+                return getStudentFront();
             }
         });
         arg.preventDefault();
@@ -33,6 +66,28 @@ $(function() {
                             data[i].id +
                             ">" +
                             data[i].dis_name +
+                            "</option>"
+                    );
+                }
+            }
+        });
+    });
+    $(document).on("change", "#selectDis", function(event) {
+        let id = $("#selectDis").val();
+
+        $.ajax({
+            url: "/get-thana/" + id,
+            method: "GET",
+            dataType: "JSON",
+            success: data => {
+                $("#thana").empty();
+                $("#thana").append("<option>" + "Select Thana" + "</option>");
+                for (let i = 0; i < data.length; i++) {
+                    $("#thana").append(
+                        "<option value=" +
+                            data[i].id +
+                            ">" +
+                            data[i].thana_name +
                             "</option>"
                     );
                 }
@@ -212,6 +267,7 @@ $(function() {
         }
     });
 });
+//application
 function getApp() {
     let url = $("#appShow").data("url");
     $.ajax({
@@ -220,6 +276,30 @@ function getApp() {
         dataType: "HTML",
         success: function(response) {
             $("#showApp").html(response);
+        }
+    });
+}
+//admin
+function getStudent() {
+    let url = $("#studentShow").data("url");
+    $.ajax({
+        url: url,
+        type: "GET",
+        dataType: "HTML",
+        success: function(response) {
+            $("#showStudent").html(response);
+        }
+    });
+}
+//front
+function getStudentFront() {
+    let url = $("#ShowFront").data("url");
+    $.ajax({
+        url: url,
+        type: "GET",
+        dataType: "HTML",
+        success: function(response) {
+            $("#showStudentFront").html(response);
         }
     });
 }

@@ -56,6 +56,14 @@ Route::group(['namespace' => 'Front'], function () {
     Route::post('update-student', "StudentController@updateStudent")->name('update-student')->middleware('student_login');
     Route::get('change-password', "StudentController@changePassword")->name('change-password')->middleware('student_login');
     Route::post('update-password', "StudentController@updatePassword")->name('update-password')->middleware('student_login');
+    Route::get('manage-student/{id}', "StudentController@manageStudent")->name('manage-student')->middleware('student_login');
+    
+    Route::get('show-student-front', "StudentController@showStudentFront")->name('show-student-front')->middleware('student_login');
+    Route::get('delete-student/{id}', "StudentController@deleteStudent")->name('delete-student')->middleware('student_login');
+    Route::get('download-pdf/{id}', "StudentController@downloadPdf")->name('download-pdf')->middleware('student_login');
+    Route::post('search-union-student', "StudentController@unionStudent")->name('search-union-student')->middleware('student_login');
+    Route::post('search-student', "StudentController@searchStudent")->name('search-student')->middleware('student_login');
+    Route::post('update-student-status', "StudentController@updateStudentStatus")->name('update-student-status')->middleware('student_login');
     
 });
 Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->group(function(){
@@ -66,9 +74,12 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('auth')->gr
     Route::post('search-register-student', "StudentRegisterController@search")->name('search-register-student');
     Route::post('update-studDent-status', "StudentController@updateStudentStatus")->name('update-student-status');
     Route::get('download/{id}', "StudentController@download")->name('download');
+    Route::get('download-job/{id}', "JobController@download")->name('download-job');
+    Route::get('manage-student-success', "StudentController@manageStudentSuccess")->name('manage-student-success');
     Route::get('manage-success-application', "JobController@successApplication")->name('manage-success-application');
     Route::post('update-status', "JobController@updateStatus")->name('update-status');
     Route::get('show-app', "JobController@showApp")->name('show-app');
+    Route::get('show-student', "StudentController@showStudent")->name('show-student');
     Route::get('delete-app/{id}', "JobController@deleteApp")->name('delete-app');
     Route::get('job-application/{id}', "JobController@jobApplication")->name('job-application');
     Route::resource('slider', "SliderController");

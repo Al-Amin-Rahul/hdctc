@@ -76,6 +76,7 @@
               <td>
                 <a href="{{ route("admin.job.show", ["job" => $app->id ]) }}" class="btn-circle btn-primary"><i class="fas fa-edit"></i></a></br></br>
                 <a href="{{ route("admin.delete-app", ["id" => $app->id ]) }}" class="btn-circle btn-danger"><i class="fas fa-trash"></i></a></br></br>
+                <a href="{{ route("admin.download-job", ["id" => $app->id ]) }}" class="btn-circle btn-warning"><i class="fas fa-download"></i></a>
               </td>
             </tr>
             @endforeach

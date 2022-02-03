@@ -9,14 +9,14 @@
                 <div class="col-lg-12">
                     <div class="text-center bg-white pt-5 pb-1">
                         <h2 class="font-weight-bold">Human Development Community to Communication</h2>
-                        <span>Muktinagar, Shaghata, Gaibandha</span><br>
+                        <span>Shaghata, Gaibandha</span><br>
                         <span>Email- hdctc.bd@gmail.com & Website- https://hdctc.com.bd</span>
                         <h2>Registration Form</h2>
                     </div>
                 </div>
             </div>
             @include('message.message')
-            <form action="{{ route("add-admission") }}" method="POST">
+            <form action="{{ route("add-admission") }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-12">
@@ -49,6 +49,12 @@
                                         <label for="nid" class="col-lg-4">NID/Birth Registration/Vaccine Registration<span class="text-danger">*</span></label>
                                         <div class="col-lg-8">
                                             <input type="text" name="nid" class="form-control" id="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="image" class="col-lg-4">Image<span class="text-danger">*</span></label>
+                                        <div class="col-lg-8">
+                                            <input type="file" name="image" class="form-control" id="">
                                         </div>
                                     </div>
                                 </div>

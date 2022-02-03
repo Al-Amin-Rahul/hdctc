@@ -64,6 +64,7 @@
     <div id="student" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
         <a class="collapse-item" href="{{ route("admin.student.index") }}"><i class="fas fa-fw fa-plus"></i> Manage Student</a>
+        <a class="collapse-item" href="{{ route("admin.manage-student-success") }}"><i class="fas fa-fw fa-plus"></i> Manage Student Success</a>
         </div>
     </div>
 </li>

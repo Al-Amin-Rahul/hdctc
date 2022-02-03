@@ -246,7 +246,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="h6" style="margin-top: 5px;margin-bottom: 5px">Academic Qualifications :</div>
+                <div class="h6" style="margin-top: 5px">Academic Qualifications :</div>
                 <table class="table-bordered" style="width: 100%">
                     <thead>
                         <tr style="background-color: rgb(185, 184, 184)">

@@ -330,19 +330,19 @@
                                     <div class="col-lg-9">
                                         <select name="hsc_board" id="hscboard" class="form-control">
                                             <option selected="true" disabled>Select</option>
-                                            <option value="dhaka">Dhaka</option>
-                                            <option value="cumilla">Cumilla</option>
-                                            <option value="rajshahi">Rajshahi</option>
-                                            <option value="jashore">Jashore</option>
-                                            <option value="chittagong">Chittagong</option>
-                                            <option value="barisal">Barisal</option>
-                                            <option value="sylhet">Sylhet</option>
-                                            <option value="dinajpur">Dinajpur</option>
-                                            <option value="madrasah">Madrasah</option>
-                                            <option value="open_univarsity">Open Univarsity</option>
-                                            <option value="mymensingh">Mymensingh</option>
-                                            <option value="bteb">Bangladesh Technical Education Board (BTEB)</option>
-                                            <option value="others">Others</option>
+                                            <option value="Dhaka">Dhaka</option>
+                                            <option value="Cumilla">Cumilla</option>
+                                            <option value="Rajshahi">Rajshahi</option>
+                                            <option value="Jashore">Jashore</option>
+                                            <option value="Chittagong">Chittagong</option>
+                                            <option value="Barisal">Barisal</option>
+                                            <option value="Sylhet">Sylhet</option>
+                                            <option value="Dinajpur">Dinajpur</option>
+                                            <option value="Madrasah">Madrasah</option>
+                                            <option value="Open Univarsity">Open Univarsity</option>
+                                            <option value="Mymensingh">Mymensingh</option>
+                                            <option value="BTEB">Bangladesh Technical Education Board (BTEB)</option>
+                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
                                 </div>

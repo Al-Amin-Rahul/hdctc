@@ -8,9 +8,12 @@ use App\Division;
 use App\District;
 use App\Thana;
 use App\Union;
+use App\StudentRegister;
 use PDF;
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class StudentController extends Controller
 {
@@ -21,7 +24,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $data['students'] = AdmissionForm::all();
+        $data['students'] = AdmissionForm::where('status', 'Pending')->orderBy('id','desc')->get();
         $data['divisions']  =   Division::all();
         return view('admin.student.manage-student', $data);
     }
@@ -89,9 +92,14 @@ class StudentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             "student_name"  => "required",
+            "service"       => "required",
+            "service_option"=> "required",
+            "nid"           => "required",
+            "mobile_banking"=> "required",
+            "refer_code"    => "required",
             "dob"           => "required",
             "gender"        => "required",
-            "student_email" => "required|unique:admission_forms,student_email,$id",
+            "student_email" => "required",
             "student_phone" => "required",
             "education"     => "required",
             "father_name"   => "required",
@@ -110,7 +118,28 @@ class StudentController extends Controller
         else
         {
             $student = AdmissionForm::find($id);
+
+            if($request->hasFile('image'))
+            {
+                File::delete($student->image);
+
+                $image      =   $request->file('image');
+                $directory  =   'images/';
+                $name       =   "IMG_" . date('Ymd_his') . '.' .$image->getClientOriginalExtension();
+                $image->move($directory, $name);
+                $imageUrl   =   $directory.$name;
+                
+            }
+            else
+            {
+                $imageUrl   =   $student->image;
+            }
             $student->student_name     = $request->student_name;
+            $student->image            = $imageUrl;
+            $student->service          = $request->service;
+            $student->service_option   = $request->service_option;
+            $student->nid              = $request->nid;
+            $student->mobile_banking   = $request->mobile_banking;
             $student->refer_code       = $request->refer_code;
             $student->dob              = $request->dob;
             $student->gender           = $request->gender;
@@ -124,10 +153,9 @@ class StudentController extends Controller
             $student->thana            = $request->thana;
             $student->union            = $request->union;
             $student->post_code        = $request->post_code;
-            $student->cash_details     = $request->cash_details;
-            $student->bank_details     = $request->bank_details;
             $student->payment_date     = $request->payment_date;
-            $student->expire_date     = $request->expire_date;
+            $student->expire_date      = $request->expire_date;
+            $student->status           = $request->status;
 
             $student->update();
             return redirect()->back()->with('message', 'Updated');
@@ -143,7 +171,15 @@ class StudentController extends Controller
     public function destroy($id)
     {
         $student    =   AdmissionForm::find($id);
+        $studentRegister    =   StudentRegister::where('refer_code', $student->refer_code)->first();
+        if($studentRegister)
+        {
+            $studentRegister->delete();
+        }
         $student->delete();
+        File::delete($student->image);
+        Session::forget('student_id');
+        Session::forget('student_name');
         return redirect()->back()->with('message', 'Deleted');
     }
 
@@ -177,7 +213,9 @@ class StudentController extends Controller
             "district"  => "required",
             "thana"  => "required",
             "union"  => "required",
-            "choice"  => "required"
+            "choice"  => "required",
+            "first_date"  => "required",
+            "last_date"  => "required"
         ]);
 
         if ($validator->fails())
@@ -186,8 +224,9 @@ class StudentController extends Controller
         }
         if($request->choice == 'print')
         {
-            $data['date'] = date('Y-m-d');
-            $data['students']    =   AdmissionForm::where('union', $request->union)->get();
+            $data['first_date'] = $request->first_date;
+            $data['last_date'] = $request->last_date;
+            $data['students']    =   AdmissionForm::where('union', $request->union)->whereBetween('created_at', [$request->first_date, $request->last_date])->get();
             $data['union']    =   Union::where('id', $request->union)->first();
             $pdf = PDF::loadView('admin.student.union-student-invoice', $data);
             return $pdf->stream('invoice.pdf');
@@ -195,7 +234,7 @@ class StudentController extends Controller
         else
         {
             $data['date'] = date('Y-m-d');
-            $data['students']    =   AdmissionForm::where('union', $request->union)->get();
+            $data['students']    =   AdmissionForm::where('union', $request->union)->whereBetween('created_at', [$request->first_date, $request->last_date])->get();
             $data['union']    =   Union::where('id', $request->union)->first();
             $data['divisions']  =   Division::all();
             return view('admin.student.union-student', $data);
@@ -214,5 +253,18 @@ class StudentController extends Controller
         $pdf = PDF::loadView('admin.reciept.card', $data)->setPaper($customPaper, 'landscape');
         return $pdf->download('hdctc.pdf');
         // return $pdf->stream('hdctc.pdf');
+    }
+
+    public function manageStudentSuccess()
+    {
+        $data['students']   =   AdmissionForm::where('status', 'Success')->get();
+        return view('admin.student.manage-success-student', $data);
+    }
+
+    public function showStudent()
+    {
+        $data['students']   =   AdmissionForm::where('status', 'Pending')->get();
+        $data['divisions']  =   Division::all();
+        return view('admin.student.show-student', $data);
     }
 }

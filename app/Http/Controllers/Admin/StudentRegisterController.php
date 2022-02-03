@@ -96,9 +96,9 @@ class StudentRegisterController extends Controller
     public function destroy($id)
     {
         $student =   StudentRegister::find($id);
-        File::delete($student->photo);
-
+        
         $student->delete($id);
+        File::delete($student->photo);
         return redirect()->back()->with('message', 'Deleted Succesfully');
     }
 

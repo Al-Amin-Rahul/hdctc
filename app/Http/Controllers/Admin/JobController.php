@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Job;
+use App\District;
+use App\Thana;
+use PDF;
 use App\Application;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
@@ -155,5 +158,18 @@ class JobController extends Controller
     {
         $data['apps']   =   Application::where('status', 'Pending')->get();
         return view('admin.job.show-app', $data);
+    }
+
+    public function download($id)
+    {
+        $data['job']    =   Application::where('id', $id)->first();
+        $data['post']   =   Job::select('short_name')->where('id', $data['job']->job_id)->first();
+        $data['dis']    =   District::select('dis_name')->where('id', $data['job']->district)->first();
+        $data['disP']   =   District::select('dis_name')->where('id', $data['job']->district_p)->first();
+        $data['thana']  =   Thana::select('thana_name')->where('id', $data['job']->thana)->first();
+        $data['thanaP'] =   Thana::select('thana_name')->where('id', $data['job']->thana_p)->first();
+        $pdf = PDF::loadView('front.career.download-app', $data);
+        // return $pdf->stream('hdctc.pdf');
+        return $pdf->download('hdctc.pdf');
     }
 }

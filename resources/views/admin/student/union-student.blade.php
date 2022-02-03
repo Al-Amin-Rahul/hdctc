@@ -22,6 +22,7 @@
           <thead class="bg-primary text-white">
             <tr>
               <th>No</th>
+              <th>Image</th>
               <th>Student Name</th>
               <th>Refer Code</th>
               <th>DOB</th>
@@ -36,14 +37,14 @@
               <th>Thana</th>
               <th>Union</th>
               <th>Post Code</th>
-              <th>Cash Details</th>
-              <th>Bank Details</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>No</th>
+              <th>Image</th>
               <th>Student Name</th>
               <th>Refer Code</th>
               <th>DOB</th>
@@ -58,8 +59,7 @@
               <th>Thana</th>
               <th>Union</th>
               <th>Post Code</th>
-              <th>Cash Details</th>
-              <th>Bank Details</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </tfoot>
@@ -68,7 +68,8 @@
           @foreach($students as $student)
             <tr>
               <td>{{ $i++ }}</td>
-              <td>{{ $student->	student_name }}</td>
+              <td><img src="{{ asset($student->image) }}" width="80" alt=""></td>
+              <td>{{ $student->student_name }}</td>
               <td>{{ $student->refer_code }}</td>
               <td>{{ $student->dob }}</td>
               <td>{{ $student->gender }}</td>
@@ -82,8 +83,19 @@
               <td>{{ $student->thana }}</td>
               <td>{{ $student->union }}</td>
               <td>{{ $student->post_code }}</td>
-              <td>{{ $student->cash_details }}</td>
-              <td>{{ $student->bank_details }}</td>
+              <td>
+                <form action="{{ route("admin.update-student-status")}}" id="updateStudentStatus" method="post">
+                  @csrf
+                  <input type="hidden" name="id" value="{{ $student->id }}">
+                    <select name="status" id="">
+                      <option value="{{ $student->status }}">{{ $student->status }}</option>
+                      <option value="Success">Success</option>
+                      <option value="pending">Pending</option>
+                  </select>
+                  <hr>
+                  <input class="btn btn-primary btn-sm btn-block" type="submit" name="update" value="Update" >
+                </form>
+              </td>
               <td>
                   <a href="{{ route("admin.student.edit", ["student" => $student->id ]) }}" class="btn-circle btn-primary"><i class="fas fa-edit"></i></a></br></br>
                   {{-- <form action="{{route("admin.student.destroy",['student' => $student->id])}}" method="post">

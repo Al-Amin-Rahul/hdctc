@@ -16,6 +16,7 @@ class CreateAdmissionFormsTable extends Migration
         Schema::create('admission_forms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('student_name');
+            $table->string('image');
             $table->string('service');
             $table->string('service_option');
             $table->string('nid', 191)->unique();
@@ -35,7 +36,7 @@ class CreateAdmissionFormsTable extends Migration
             $table->integer('post_code');
             $table->string('payment_date')->nullable();
             $table->string('expire_date')->nullable();
-            $table->string('status')->default('pending');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

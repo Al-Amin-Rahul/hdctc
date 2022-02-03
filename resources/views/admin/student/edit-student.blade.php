@@ -25,6 +25,35 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="control-label col-sm-4" for="">Image</label>
+                        <img src="{{asset($student->image)}}" width="80" alt="">
+                        <input type="file" name="image" class="form-control col-sm-6" id="">
+                    </div>
+                    <div class="form-group row">
+                        <label for="service" class="col-lg-3">Service</label>
+                        <div class="col-lg-9">
+                            <input type="text" name="service" value="{{ $student->service }}" class="form-control" id="refer">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="service_option" class="col-lg-3">Service Option</label>
+                        <div class="col-lg-9">
+                            <input type="text" name="service_option" value="{{ $student->service_option }}" class="form-control" id="refer">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nid" class="col-lg-3">Nid</label>
+                        <div class="col-lg-9">
+                            <input type="text" name="nid" value="{{ $student->nid }}" class="form-control" id="refer">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mobile_banking" class="col-lg-3">Mobile Banking</label>
+                        <div class="col-lg-9">
+                            <input type="text" name="mobile_banking" value="{{ $student->mobile_banking }}" class="form-control" id="refer">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="refer" class="col-lg-3">Refer Code</label>
                         <div class="col-lg-9">
                             <input type="text" name="refer_code" value="{{ $student->refer_code }}" class="form-control" id="refer">
@@ -122,6 +151,28 @@
                         <label for="post" class="col-lg-3">Post Code</label>
                         <div class="col-lg-9">
                             <input type="number" name="post_code" value="{{ $student->post_code }}" class="form-control" id="post">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="payment_date" class="col-lg-3">Payement Date</label>
+                        <div class="col-lg-9">
+                            <input type="date" name="payment_date" value="{{ $student->payment_date }}" class="form-control" id="post">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="expire_date" class="col-lg-3">Payement Date</label>
+                        <div class="col-lg-9">
+                            <input type="date" name="expire_date" value="{{ $student->expire_date }}" class="form-control" id="post">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="status" class="col-lg-3">Status</label>
+                        <div class="col-lg-9">
+                            <select name="status" id="" class="form-control">
+                                <option value="{{ $student->status }}" {{ $student->status == "Pending" ? 'selected':'' }}>{{ $student->status }}</option>
+                                <option value="Success">Success</option>
+                                <option value="pending">Pending</option>
+                            </select>
                         </div>
                     </div>
                     <input type="submit" value="Update" name="submit" class="btn btn-primary form-control">

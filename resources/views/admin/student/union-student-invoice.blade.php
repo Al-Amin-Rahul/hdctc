@@ -87,8 +87,8 @@
                     <table>
                         <tr>
                             <td>
-                                <h2>Human Development Computer Training Center</h2>
-                                Muktinagar, Shaghata, Gaibandha <br>
+                                <h2>Human Development Community to Communication</h2>
+                                Shaghata, Gaibandha <br>
                                 <span>Email- <u>hdctc.bd@gmail.com</u>, Website- <u>https://hdctc.com.bd</u></span>
                             </td>
                         </tr>
@@ -97,7 +97,7 @@
             </tr>
             <tr class="details">
                 <td class="union" colspan="3">Union : {{ $union->union_name }}</td>
-                <td colspan="2">Date : {{ $date }}</td>
+                <td colspan="2">Date : {{ $first_date }} - {{ $last_date }}</td>
             </tr>
             <tr class="heading">
                 <td>No</td>
@@ -113,6 +113,7 @@
                 <td>{{ $student->student_name }}</td>
                 <td>{{ $student->student_phone }}</td>
                 <td>{{ $student->student_email }}</td>
+                <td>{{ $student->status }}</td>
                 <td></td>
             </tr>
             @endforeach

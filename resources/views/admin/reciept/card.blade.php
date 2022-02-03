@@ -87,8 +87,8 @@
                 <u>Handicraft And Cottage Industries</u>
             @endif
         </div>
-        <div class="box3" style="border: 1px solid black;margin-top: -40px">
-            <div class="pic" style="padding: 50px 0px 50px 0px;text-align: center">Picture</div>
+        <div class="box3" style="margin-top: -40px">
+            <div class="pic" style=""><img src="{{ asset($reg->image) }}" width="100px" alt=""></div>
         </div>
     </div>
     <section>

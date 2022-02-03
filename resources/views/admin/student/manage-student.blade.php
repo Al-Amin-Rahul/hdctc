@@ -10,7 +10,7 @@
     <li class="breadcrumb-item active">Manage student</li>
 </ol>
 @include('message.message')
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" id="showStudent">
     <div class="row">
       <div class="col-lg-8">
         <div class="card-body border border-dark">
@@ -34,6 +34,12 @@
                   </div>
                   <div class="col-lg-3">
                     <select name="union" id="union" class="form-control" required></select>
+                  </div>
+                  <div class="col-lg-6 pt-3">
+                    <input type="date" name="first_date" id="" class="form-control">
+                  </div>
+                  <div class="col-lg-6 pt-3">
+                    <input type="date" name="last_date" id="" class="form-control">
                   </div>
                   <div class="col-lg-12 pt-3">
                     <select name="choice" id="" class="form-control">
@@ -64,6 +70,7 @@
           <thead class="bg-primary text-white">
             <tr>
               <th>No</th>
+              <th>Image</th>
               <th>Student Name</th>
               <th>Refer Code</th>
               <th>DOB</th>
@@ -85,6 +92,7 @@
           <tfoot>
             <tr>
               <th>No</th>
+              <th>Image</th>
               <th>Student Name</th>
               <th>Refer Code</th>
               <th>DOB</th>
@@ -108,6 +116,7 @@
           @foreach($students as $student)
             <tr>
               <td>{{ $i++ }}</td>
+              <td><img src="{{ asset($student->image) }}" width="80" alt=""></td>
               <td>{{ $student->	student_name }}</td>
               <td>{{ $student->refer_code }}</td>
               <td>{{ $student->dob }}</td>
@@ -123,7 +132,7 @@
               <td>{{ $student->union }}</td>
               <td>{{ $student->post_code }}</td>
               <td>
-                <form action="{{ route("admin.update-student-status")}}" method="post">
+                <form action="{{ route("admin.update-student-status")}}" id="updateStudentStatus" method="post">
                   @csrf
                   <input type="hidden" name="id" value="{{ $student->id }}">
                     <select name="status" id="">
@@ -152,4 +161,5 @@
     </div>
   </div>
 </div>
+<div id="studentShow" data-url="{{ url('admin/show-student') }}"></div>
 @endsection

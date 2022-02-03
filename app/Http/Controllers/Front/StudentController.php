@@ -9,16 +9,21 @@ use App\StudentInfo;
 use App\Work;
 use App\WorkUnion;
 use App\Union;
+use App\Division;
+use App\District;
+use App\Thana;
 use PDF;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class StudentController extends Controller
 {
     public function addAdmision(Request $request){
         $validator = Validator::make($request->all(), [
             "service"       => "required",
+            "image"         => "required",
             "nid"           => "required|unique:admission_forms,nid",
             "service_option"=> "required",
             "student_name"  => "required",
@@ -157,5 +162,101 @@ class StudentController extends Controller
         else{
             return redirect()->back()->with('warning', 'Old Password Not Match');
         }
+    }
+
+    public function manageStudent($id)
+    {
+        $data['ref']        =   StudentRegister::select('refer_code')->where('id', $id)->first();
+        $data['user_div']   =   AdmissionForm::select('division')->where('refer_code', $data['ref']->refer_code)->first();
+        $data['districts']  =   District::where('div_id', $data['user_div']->division)->get();
+        $data['students']   =   AdmissionForm::where('status', 'Pending')->orderBy('id', 'desc')->get();
+        $data['divisions']  =   Division::all();
+        return view('front.student.manage-student',$data);
+    }
+
+    public function deleteStudent($id)
+    {
+        $student    =   AdmissionForm::find($id);
+        File::delete($student->image);
+        $student->delete();
+        Session::forget('student_id');
+        Session::forget('student_name');
+        return redirect()->back()->with('message', 'Deleted');
+    }
+
+    public function downloadPdf($id)
+    {
+        $data['date'] = date('Y-m-d');
+        $data['reg']  = AdmissionForm::where('id', $id)->first();
+        $data['div']  = Division::select('div_name')->where('id', $data['reg']->division)->first();
+        $data['dis']  = District::select('dis_name')->where('id', $data['reg']->district)->first();
+        $data['thana']  = Thana::select('thana_name')->where('id', $data['reg']->thana)->first();
+        $data['union']  = Union::select('union_name')->where('id', $data['reg']->union)->first();
+        $customPaper = array(0,0,596,425);
+        $pdf = PDF::loadView('admin.reciept.card', $data)->setPaper($customPaper, 'landscape');
+        return $pdf->download('hdctc.pdf');
+    }
+
+    public function updateStudentStatus(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            "status" => "required"
+        ]);
+
+        $student = AdmissionForm::find($request->id);
+
+        $student->update([
+            "status" => $request->status
+
+        ]);
+
+        return redirect()->back()->with('message', 'Status Updated');
+    }
+
+    public function showStudentFront()
+    {
+        $data['students']   =   AdmissionForm::where('status', 'Pending')->get();
+        $data['divisions']  =   Division::all();
+        return view('front.student.show-student', $data);
+    }
+
+    public function unionStudent(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            "district"  => "required",
+            "thana"  => "required",
+            "union"  => "required",
+            "choice"  => "required",
+            "first_date"  => "required",
+            "last_date"  => "required"
+        ]);
+
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        if($request->choice == 'print')
+        {
+            $data['date'] = date('Y-m-d');
+            $data['students']    =   AdmissionForm::where('union', $request->union)->whereBetween('created_at', [$request->first_date, $request->last_date])->get();
+            $data['union']    =   Union::where('id', $request->union)->first();
+            $pdf = PDF::loadView('admin.student.union-student-invoice', $data);
+            return $pdf->stream('invoice.pdf');
+        }
+        else
+        {
+            $data['date'] = date('Y-m-d');
+            $data['students']    =   AdmissionForm::where('union', $request->union)->whereBetween('created_at', [$request->first_date, $request->last_date])->get();
+            $data['union']    =   Union::where('id', $request->union)->first();
+            $data['divisions']  =   Division::all();
+            return view('front.student.union-student', $data);
+        }
+    }
+
+     public function searchStudent(Request $request)
+    {
+        $data['students']    =   AdmissionForm::where('student_phone', $request->phone)->get();
+        $data['union']    =   '';
+        return view('front.student.union-student', $data);
     }
 }

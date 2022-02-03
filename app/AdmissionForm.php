@@ -29,7 +29,19 @@ class AdmissionForm extends Model
         {
             $code   =   $code.rand(0,1000);
         }
+
+        if($request->hasFile('image'))
+        {
+            $image     = $request->file('image');
+            $directory = 'images/';
+            $name      = 'IMG_'. date('Ymd_his') .'.'. $image->getClientOriginalExtension();
+            $imageUrl  = $directory.$name;
+
+            $image->move($directory, $name);
+        }
+
         $form->service          = $request->service;
+        $form->image            = $imageUrl;
         $form->service_option   = $request->service_option;
         $form->nid              = $request->nid;
         $form->student_name     = $request->student_name;
